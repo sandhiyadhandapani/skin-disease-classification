@@ -1,0 +1,22 @@
+split,dx,disease_name,image_count,percentage_within_split
+test,akiec,Actinic keratoses and intraepithelial carcinoma,33,3.290129611166501
+test,bcc,Basal cell carcinoma,52,5.18444666001994
+test,bkl,Benign keratosis-like lesions,110,10.967098703888336
+test,df,Dermatofibroma,12,1.1964107676969093
+test,mel,Melanoma,111,11.06679960119641
+test,nv,Melanocytic nevi,671,66.89930209371884
+test,vasc,Vascular lesions,14,1.3958125623130608
+train,akiec,Actinic keratoses and intraepithelial carcinoma,261,3.2576135796305543
+train,bcc,Basal cell carcinoma,411,5.129805292061907
+train,bkl,Benign keratosis-like lesions,879,10.97104343484773
+train,df,Dermatofibroma,92,1.1482775836245633
+train,mel,Melanoma,891,11.120818771842236
+train,nv,Melanocytic nevi,5364,66.94957563654518
+train,vasc,Vascular lesions,114,1.422865701447828
+validation,akiec,Actinic keratoses and intraepithelial carcinoma,33,3.3000000000000003
+validation,bcc,Basal cell carcinoma,51,5.1
+validation,bkl,Benign keratosis-like lesions,110,11.0
+validation,df,Dermatofibroma,11,1.0999999999999999
+validation,mel,Melanoma,111,11.1
+validation,nv,Melanocytic nevi,670,67.0
+validation,vasc,Vascular lesions,14,1.4000000000000001

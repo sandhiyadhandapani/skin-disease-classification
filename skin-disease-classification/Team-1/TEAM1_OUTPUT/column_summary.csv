@@ -1,0 +1,8 @@
+column,dtype,unique_values,missing_count,top_values
+lesion_id,str,7470,0,HAM_0003789=6; HAM_0000835=6; HAM_0001863=6; HAM_0005263=6; HAM_0000893=5; HAM_0007427=5; HAM_0007343=5; HAM_0007367=5; HAM_0002364=5; HAM_0003847=4
+image_id,str,10015,0,ISIC_0027419=1; ISIC_0025030=1; ISIC_0026769=1; ISIC_0025661=1; ISIC_0031633=1; ISIC_0027850=1; ISIC_0029176=1; ISIC_0029068=1; ISIC_0025837=1; ISIC_0025209=1
+dx,str,7,0,nv=6705; mel=1113; bkl=1099; bcc=514; akiec=327; vasc=142; df=115
+dx_type,str,4,0,histo=5340; follow_up=3704; consensus=902; confocal=69
+age,float64,18,57,45.0=1299; 50.0=1187; 55.0=1009; 40.0=985; 60.0=803; 70.0=756; 35.0=753; 65.0=731; 75.0=618; 30.0=464
+sex,str,3,0,male=5406; female=4552; unknown=57
+localization,str,15,0,back=2192; lower extremity=2077; trunk=1404; upper extremity=1118; abdomen=1022; face=745; chest=407; foot=319; unknown=234; neck=168
