@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skin Disease Classification</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Skin Disease Classification</p>
+          <h1>Photo Upload & Reference Gallery</h1>
+        </div>
+      </header>
+
+      <main class="content-grid">
+        <section class="upload-panel card">
+          <div class="section-header">
+            <h2>Upload Skin Image</h2>
+            <span class="badge">Ready for Team 3/4</span>
+          </div>
+
+          <div id="dropZone" class="drop-zone" tabindex="0" aria-label="Upload skin image area">
+            <input id="imageInput" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png" hidden />
+            <div class="upload-illustration">📷</div>
+            <p class="drop-title">Drag & drop an image here</p>
+            <p class="drop-subtitle">or</p>
+            <button id="browseButton" class="primary-button" type="button">Upload Skin Image</button>
+            <p class="file-hint">Supports JPG, JPEG, PNG up to 5 MB</p>
+          </div>
+
+          <div id="errorBox" class="error-box hidden" role="alert"></div>
+
+          <div id="previewWrapper" class="preview-wrapper hidden">
+            <div class="preview-header">
+              <h3>Selected Image</h3>
+              <button id="removeImageButton" class="secondary-button" type="button">Clear</button>
+            </div>
+            <img id="previewImage" alt="Selected skin image preview" />
+            <div class="file-meta">
+              <span id="fileName">No file selected</span>
+              <span id="fileSize">0 KB</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="gallery-panel card">
+          <div class="section-header">
+            <h2>Reference Sample Gallery</h2>
+            <span class="badge subtle">70 sample images</span>
+          </div>
+          <div id="sampleGallery" class="sample-gallery" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
