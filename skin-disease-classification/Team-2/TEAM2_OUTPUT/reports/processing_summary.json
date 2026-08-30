@@ -1,0 +1,42 @@
+{
+  "total_input_images": 10015,
+  "train_count": 56,
+  "validation_count": 7,
+  "test_count": 5,
+  "successfully_processed_count": 68,
+  "failed_or_corrupted_count": 9947,
+  "image_size": [
+    224,
+    224
+  ],
+  "color_format": "RGB",
+  "normalization_strategy": "Saved as uint8 RGB PNGs in the 0..255 range. Team 3 must not apply a second 1/255 rescale during training.",
+  "augmentation_strategy": "Only train data receives random flips, rotation, and zoom. Validation and test are deterministic and unaugmented.",
+  "output_location": "D:\\Techtrio - intern\\2nd major project\\skin-disease-classification\\skin-disease-classification\\Team-2\\TEAM2_OUTPUT",
+  "dataset_split_manifest": "D:\\Techtrio - intern\\2nd major project\\skin-disease-classification\\skin-disease-classification\\Team-2\\TEAM2_OUTPUT\\metadata\\team1_dataset_split.csv",
+  "class_wise_counts": {
+    "train": {
+      "bkl": 9,
+      "df": 8,
+      "mel": 9,
+      "vasc": 7,
+      "bcc": 8,
+      "nv": 9,
+      "akiec": 6
+    },
+    "validation": {
+      "bkl": 1,
+      "mel": 1,
+      "vasc": 2,
+      "bcc": 2,
+      "akiec": 1
+    },
+    "test": {
+      "df": 2,
+      "vasc": 1,
+      "nv": 1,
+      "akiec": 1
+    }
+  },
+  "leakage_free": true
+}

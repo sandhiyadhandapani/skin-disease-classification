@@ -56,3 +56,16 @@ def test_load_split_manifest_uses_team1_file(tmp_path):
     loaded = load_split_manifest(manifest)
     assert list(loaded.columns) == ["image_id", "lesion_id", "dx", "split"]
     assert set(loaded["split"].unique()) == {"train", "test"}
+
+
+def test_find_dataset_image_handles_repo_style_filenames(tmp_path):
+    dataset_dir = tmp_path / "HAM10000"
+    class_dir = dataset_dir / "bkl_benign_keratosis"
+    class_dir.mkdir(parents=True)
+    source = class_dir / "ISIC_0027419.jpg.jpeg"
+    source.write_bytes(b"fake")
+
+    resolved = MODULE.find_dataset_image(dataset_dir, "ISIC_0027419")
+
+    assert resolved is not None
+    assert resolved.name == source.name

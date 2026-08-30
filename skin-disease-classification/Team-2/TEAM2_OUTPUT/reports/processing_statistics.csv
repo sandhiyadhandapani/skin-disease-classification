@@ -1,0 +1,4 @@
+split,image_count,class_count
+train,56,7
+validation,7,5
+test,5,4
