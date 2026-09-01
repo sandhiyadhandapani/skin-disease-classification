@@ -1,0 +1,17 @@
+split,dx,disease_name,image_count
+train,akiec,Actinic keratoses and intraepithelial carcinoma,6
+train,bcc,Basal cell carcinoma,8
+train,bkl,Benign keratosis-like lesions,9
+train,df,Dermatofibroma,8
+train,mel,Melanoma,9
+train,nv,Melanocytic nevi,9
+train,vasc,Vascular lesions,7
+validation,akiec,Actinic keratoses and intraepithelial carcinoma,1
+validation,bcc,Basal cell carcinoma,2
+validation,bkl,Benign keratosis-like lesions,1
+validation,mel,Melanoma,1
+validation,vasc,Vascular lesions,2
+test,akiec,Actinic keratoses and intraepithelial carcinoma,1
+test,df,Dermatofibroma,2
+test,nv,Melanocytic nevi,1
+test,vasc,Vascular lesions,1

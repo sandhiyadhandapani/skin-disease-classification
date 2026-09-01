@@ -1,10 +1,12 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import json
 from pathlib import Path
 
 import cv2
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -50,7 +52,7 @@ def load_split_manifest(manifest_path: str | Path) -> pd.DataFrame:
 
 def check_split_leakage(split_df: pd.DataFrame) -> bool:
     split_sets = {
-        split_name: set(split_df.loc[split_df["split"] == split_name, "lesion_id"])
+        split_name: set(split_df.loc[split_df["split"] == split_name, "lesion_id"].astype(str))
         for split_name in ALLOWED_SPLITS
     }
     for left_idx, left_split in enumerate(ALLOWED_SPLITS):
@@ -64,22 +66,24 @@ def ensure_uint8_image(image: np.ndarray) -> np.ndarray:
     if image is None:
         raise ValueError("Image array is None.")
     image = np.asarray(image)
+    if image.size == 0:
+        raise ValueError("Image array is empty.")
     if image.dtype == np.uint8:
         return image.copy()
-    if image.dtype.kind in {"f", "i"}:
+    if np.issubdtype(image.dtype, np.floating):
         image = np.clip(image, 0, 255)
-        if image.dtype.kind == "f":
-            image = np.rint(image).astype(np.uint8)
-        else:
-            image = image.astype(np.uint8)
-        return image
+        return np.rint(image).astype(np.uint8)
+    if np.issubdtype(image.dtype, np.integer):
+        return np.clip(image, 0, 255).astype(np.uint8)
     return image.astype(np.uint8)
 
 
 def find_dataset_dir() -> Path:
     candidates = [
-        Path.home() / "Downloads" / "archive (1)",
+        Path(__file__).resolve().parents[2] / "HAM10000",
+        Path(__file__).resolve().parents[2],
         Path.home() / "Downloads" / "HAM10000",
+        Path.home() / "Downloads" / "archive (1)",
         Path.home() / "Downloads",
         Path(__file__).resolve().parents[2],
         Path(__file__).resolve().parent.parent / "sample_images",
@@ -160,7 +164,7 @@ def resize_image(image: np.ndarray, width: int = 224, height: int = 224) -> np.n
 
 
 def apply_training_augmentation(image_rgb: np.ndarray) -> np.ndarray:
-    image = image_rgb.copy().astype(np.uint8)
+    image = np.asarray(image_rgb, dtype=np.uint8).copy()
     if np.random.rand() < 0.5:
         image = cv2.flip(image, 1)
     if np.random.rand() < 0.3:
@@ -197,15 +201,11 @@ def apply_training_augmentation(image_rgb: np.ndarray) -> np.ndarray:
 def save_processed_image(image_rgb: np.ndarray, output_path: Path) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     image = ensure_uint8_image(image_rgb)
-    if image.dtype != np.uint8:
-        raise ValueError(f"Processed image must be uint8 before saving but got {image.dtype}.")
     if image.ndim == 2:
         image = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
-    elif image.shape[-1] == 3:
-        pass
     elif image.shape[-1] == 4:
         image = cv2.cvtColor(image, cv2.COLOR_BGRA2RGB)
-    else:
+    elif image.shape[-1] != 3:
         raise ValueError(f"Unexpected channel count: {image.shape}")
 
     success = cv2.imwrite(str(output_path), cv2.cvtColor(image, cv2.COLOR_RGB2BGR))
