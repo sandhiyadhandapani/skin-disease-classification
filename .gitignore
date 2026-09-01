@@ -1,0 +1,10 @@
+# Generated Team 2 processed dataset
+**/Team-2/processed_data/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+venv/
