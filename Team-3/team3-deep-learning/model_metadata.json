@@ -1,0 +1,76 @@
+{
+  "model_architecture": "custom CNN",
+  "num_classes": 7,
+  "class_mapping": {
+    "akiec": 0,
+    "bcc": 1,
+    "bkl": 2,
+    "df": 3,
+    "mel": 4,
+    "nv": 5,
+    "vasc": 6
+  },
+  "input_image_size": [
+    224,
+    224,
+    3
+  ],
+  "image_format": "RGB uint8 0-255",
+  "normalization": "rescale=1/255 applied once in the data generator",
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "batch_size": 8,
+  "epochs": 10,
+  "best_epoch": 6,
+  "best_val_accuracy": 0.2857142984867096,
+  "best_val_loss": 1.952305555343628,
+  "train_images": 54,
+  "validation_images": 7,
+  "test_images": 7,
+  "model_path": "C:\\Users\\rasir\\skin-disease-classification\\Team-3\\team3-deep-learning\\models\\best_model_20260831_231219.keras",
+  "note": "Training completed on the available 68-image sample/gallery dataset and not the full HAM10000 dataset.",
+  "test_predictions": [
+    {
+      "file": "c:\\Users\\rasir\\skin-disease-classification\\skin-disease-classification\\Team-2\\processed_data\\test\\akiec\\ISIC_0025825.jpg.png",
+      "predicted_index": 6,
+      "predicted_label": "vasc",
+      "confidence": 0.18482176959514618
+    },
+    {
+      "file": "c:\\Users\\rasir\\skin-disease-classification\\skin-disease-classification\\Team-2\\processed_data\\test\\bcc\\ISIC_0024572.jpg.png",
+      "predicted_index": 6,
+      "predicted_label": "vasc",
+      "confidence": 0.18050360679626465
+    },
+    {
+      "file": "c:\\Users\\rasir\\skin-disease-classification\\skin-disease-classification\\Team-2\\processed_data\\test\\bkl\\ISIC_0024626.jpg.png",
+      "predicted_index": 2,
+      "predicted_label": "bkl",
+      "confidence": 0.20265869796276093
+    },
+    {
+      "file": "c:\\Users\\rasir\\skin-disease-classification\\skin-disease-classification\\Team-2\\processed_data\\test\\df\\ISIC_0026629.jpg.png",
+      "predicted_index": 6,
+      "predicted_label": "vasc",
+      "confidence": 0.21316573023796082
+    },
+    {
+      "file": "c:\\Users\\rasir\\skin-disease-classification\\skin-disease-classification\\Team-2\\processed_data\\test\\mel\\ISIC_0024675.jpg.png",
+      "predicted_index": 6,
+      "predicted_label": "vasc",
+      "confidence": 0.18012204766273499
+    },
+    {
+      "file": "c:\\Users\\rasir\\skin-disease-classification\\skin-disease-classification\\Team-2\\processed_data\\test\\nv\\ISIC_0024363.jpg.png",
+      "predicted_index": 2,
+      "predicted_label": "bkl",
+      "confidence": 0.1982538253068924
+    },
+    {
+      "file": "c:\\Users\\rasir\\skin-disease-classification\\skin-disease-classification\\Team-2\\processed_data\\test\\vasc\\ISIC_0026092.jpg.png",
+      "predicted_index": 6,
+      "predicted_label": "vasc",
+      "confidence": 0.18228666484355927
+    }
+  ]
+}

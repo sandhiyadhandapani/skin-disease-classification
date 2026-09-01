@@ -1,4 +1,5 @@
 import importlib.util
+import json
 from pathlib import Path
 
 import numpy as np
@@ -56,3 +57,23 @@ def test_load_split_manifest_uses_team1_file(tmp_path):
     loaded = load_split_manifest(manifest)
     assert list(loaded.columns) == ["image_id", "lesion_id", "dx", "split"]
     assert set(loaded["split"].unique()) == {"train", "test"}
+
+
+def test_write_class_mapping_creates_json(tmp_path):
+    mapping_path = tmp_path / "class_mapping.json"
+    MODULE.write_class_mapping(mapping_path)
+
+    mapping = json.loads(mapping_path.read_text(encoding="utf-8"))
+    assert mapping["akiec"] == 0
+    assert mapping["vasc"] == 6
+    assert list(mapping.keys()) == ["akiec", "bcc", "bkl", "df", "mel", "nv", "vasc"]
+
+
+def test_processed_images_remain_uint8_and_not_normalized(tmp_path):
+    image = np.full((32, 32, 3), 128, dtype=np.uint8)
+    saved = MODULE.save_processed_image(image, tmp_path / "output.png")
+    assert saved is None
+    reloaded = np.asarray(MODULE.cv2.imread(str(tmp_path / "output.png"), MODULE.cv2.IMREAD_COLOR))
+    assert reloaded.dtype == np.uint8
+    assert reloaded.min() >= 0 and reloaded.max() <= 255
+    assert not np.allclose(reloaded.astype(np.float32) / 255.0, np.zeros_like(reloaded, dtype=np.float32))

@@ -1,0 +1,57 @@
+{
+  "akiec": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1.0
+  },
+  "bcc": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1.0
+  },
+  "bkl": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1.0
+  },
+  "df": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1.0
+  },
+  "mel": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1.0
+  },
+  "nv": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1.0
+  },
+  "vasc": {
+    "precision": 0.14285714285714285,
+    "recall": 1.0,
+    "f1-score": 0.25,
+    "support": 1.0
+  },
+  "accuracy": 0.14285714285714285,
+  "macro avg": {
+    "precision": 0.02040816326530612,
+    "recall": 0.14285714285714285,
+    "f1-score": 0.03571428571428571,
+    "support": 7.0
+  },
+  "weighted avg": {
+    "precision": 0.02040816326530612,
+    "recall": 0.14285714285714285,
+    "f1-score": 0.03571428571428571,
+    "support": 7.0
+  }
+}
